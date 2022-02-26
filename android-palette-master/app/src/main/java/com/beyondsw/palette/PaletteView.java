@@ -9,10 +9,11 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Xfermode;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,10 +80,10 @@ public class PaletteView extends View {
         mPaint.setFilterBitmap(true);
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
-        mDrawSize = DimenUtils.dp2pxInt(3);
+        mDrawSize = DimenUtils.dp2pxInt(2);
         mEraserSize = DimenUtils.dp2pxInt(30);
         mPaint.setStrokeWidth(mDrawSize);
-        mPaint.setColor(0XFF000000);
+        mPaint.setColor(Color.RED);
         mXferModeDraw = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         mXferModeClear = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
         mPaint.setXfermode(mXferModeDraw);
@@ -262,7 +263,6 @@ public class PaletteView extends View {
         }
     }
 
-    @SuppressWarnings("all")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if(!isEnabled()){
